@@ -1,0 +1,32 @@
+buildscript {
+  // Buildscript is evaluated before everything else so we can't use getExtOrDefault
+  def kotlin_version = rootProject.ext.has("kotlinVersion") ? rootProject.ext.get("kotlinVersion") : project.properties["ClashMeta_kotlinVersion"]
+
+  repositories {
+    google()
+    mavenCentral()
+    maven {
+      url "https://maven.kr328.app/releases"
+    }
+    maven { url "https://jitpack.io" }
+  }
+
+  dependencies {
+    classpath "com.android.tools.build:gradle:7.2.1"
+    // noinspection DifferentKotlinGradleVersion
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath("com.github.kr328.golang:gradle-plugin:1.0.4")
+  }
+}
+
+
+repositories {
+  mavenCentral()
+  google()
+  maven {
+    url "https://maven.kr328.app/releases"
+  }
+  // jcenter()
+  maven { url "https://jitpack.io" }
+}
+
